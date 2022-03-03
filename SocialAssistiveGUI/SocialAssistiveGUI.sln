@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< Updated upstream
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.TestRunner", "UnityEngine.TestRunner.csproj", "{95DEB545-6305-5A81-BA76-6039F8B66022}"
@@ -90,6 +91,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Common.Runtime", "Unity.2D.Common.Runtime.Player.csproj", "{6628BCCB-BB8A-EA05-388B-6262E13E4D5D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.InternalAPIEngineBridge.001", "Unity.InternalAPIEngineBridge.001.Player.csproj", "{C075E903-F352-9BC8-0519-4640464F0AAD}"
+=======
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{E8835148-2FD0-95E4-5A59-15226DC8A7C7}"
+>>>>>>> Stashed changes
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +103,7 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< Updated upstream
 		{95DEB545-6305-5A81-BA76-6039F8B66022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95DEB545-6305-5A81-BA76-6039F8B66022}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95DEB545-6305-5A81-BA76-6039F8B66022}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -277,6 +284,12 @@ Global
 		{C075E903-F352-9BC8-0519-4640464F0AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C075E903-F352-9BC8-0519-4640464F0AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C075E903-F352-9BC8-0519-4640464F0AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{E8835148-2FD0-95E4-5A59-15226DC8A7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8835148-2FD0-95E4-5A59-15226DC8A7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8835148-2FD0-95E4-5A59-15226DC8A7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8835148-2FD0-95E4-5A59-15226DC8A7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Stashed changes
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
