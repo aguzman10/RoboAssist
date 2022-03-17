@@ -36,5 +36,6 @@ public class SimulatedUser
     // Getters
     public int GetNumCorrect() { return _numCorrect; }
     public int GetNumIncorrect() { return _numIncorrect; }
+    public string GetName() { return _name; }
 
 }
