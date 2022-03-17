@@ -6,6 +6,7 @@ using UnityEngine;
 public class Queue : ScriptableObject
 {
     public LinkedList<MotionObject> activityQueue = new LinkedList<MotionObject>();
+    
     public void AddMotion(MotionObject motion)
     {
         activityQueue.AddLast(motion);

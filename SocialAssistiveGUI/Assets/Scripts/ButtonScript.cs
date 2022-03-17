@@ -10,7 +10,7 @@ public class ButtonScript : MonoBehaviour
     {
         _queue.AddMotion(motion);
     }
-        public void DisplayQueue()
+    public void DisplayQueue()
     {
         _queue.PrintQueue();
     }
