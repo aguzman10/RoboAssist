@@ -8,7 +8,7 @@ public class SimulatedUser
 
     public string targetMovement; // Movement user should perform
     public string chosenMovement; // Movement the user did perform
-    public double incorrectChance; // Chance of generating a wrong answer (user tunable)
+    public double incorrectChance = 0.5; // Chance of generating a wrong answer (user tunable)
 
     public SimulatedUser(string name)
     {
@@ -20,7 +20,7 @@ public class SimulatedUser
     // Randomly generates correct/incorrect user movement input
     public void GenerateMovement()
     {
-        System.Random rnd = new System.Random(); 
+        System.Random rnd = new System.Random();
         double chance = rnd.NextDouble();
 
         if (chance < incorrectChance)
@@ -28,9 +28,13 @@ public class SimulatedUser
             do
                 chosenMovement = _movements[rnd.Next(_movements.Length)]; // Generate random wrong movement
             while (chosenMovement == targetMovement);
+            _numIncorrect++;
         }
         else
+        { 
             chosenMovement = targetMovement; // Generate the correct movement
+            _numCorrect++;
+        }
     }
 
     // Getters
