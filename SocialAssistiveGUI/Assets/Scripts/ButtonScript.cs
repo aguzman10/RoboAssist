@@ -15,4 +15,8 @@ public class ButtonScript : MonoBehaviour
         _queue.PrintQueue();
     }
 
+    public void RemoveLastMotion(){
+        _queue.RemoveLast();
+    }
+
 }

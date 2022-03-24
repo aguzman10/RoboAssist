@@ -1852,7 +1852,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000043256907, y: -0.0000030398369}
-  m_SizeDelta: {x: 316.4521, y: 328.8715}
+  m_SizeDelta: {x: 129.47, y: 328.8715}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &704479693 stripped
 RectTransform:
@@ -4503,7 +4503,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 655677574}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.77072227
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4605,6 +4605,7 @@ GameObject:
   - component: {fileID: 1795069910}
   - component: {fileID: 1795069909}
   - component: {fileID: 1795069908}
+  - component: {fileID: 1795069911}
   m_Layer: 5
   m_Name: UndoButton
   m_TagString: Untagged
@@ -4674,7 +4675,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1795069909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1795069911}
+        m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
+        m_MethodName: RemoveLastMotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1795069909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4713,6 +4726,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795069906}
   m_CullTransparentMesh: 1
+--- !u!114 &1795069911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795069906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b51650b1e66415488a45d5361af03e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _queue: {fileID: 11400000, guid: e0a81bcf701a8a449b5eb7f57762920f, type: 2}
+  motion: {fileID: 0}
 --- !u!224 &1816551090 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2410603763439213269, guid: 6703ad04d55db6547a68b9891faf0270, type: 3}
