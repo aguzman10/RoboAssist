@@ -1,23 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 [CreateAssetMenu(fileName = "New Activity Queue", menuName = "ActivityQueues")]
 public class Queue : ScriptableObject
 {
     //Main Queue, only modified by buttons. Copy of Queue is sent to simulation.
     private LinkedList<MotionObject> activityQueue = new LinkedList<MotionObject>();
+    private List<GameObject> iconList = new List<GameObject>();
 
-    private int offset = 0;
-    private int count = 0;
     //used to create sprites in sliding window, need an offset variable to 
-    public GameObject prefab;
+    public GameObject prefabIcon;
+
+    private static GameObject contentWindow;
+
+    /*public void Start()
+    {
+        contentWindow = GameObject.Find("Content");
+    }*/
 
     //Add motion to queue, currently used on all Motionbuttons
     public void AddMotion(MotionObject motion)
     {
         activityQueue.AddLast(motion);
-        count += 1;
+        contentWindow = GameObject.Find("Content"); //Any way to do this only once? Can't use start function (SCRIPTABLE OBJECT TYPE)
+        GameObject icon = Instantiate(prefabIcon, contentWindow.transform);
+        iconList.Add(icon);
+        
+
+        TextMeshProUGUI ltext = icon.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+        ltext.text = activityQueue.Count.ToString();
+
+        var img = Resources.Load<Sprite>(motion.imageLocation);
+        var imageLinker = icon.GetComponent<Image>();
+        var transformLinker = icon.GetComponent<Transform>();
+
+        imageLinker.sprite = img;
     }
 
     //Debug purposes only, currently used in run button
@@ -29,10 +50,17 @@ public class Queue : ScriptableObject
         }
     }
 
+    //Used for undo Button
     public void RemoveLast(){
-        activityQueue.RemoveLast();
+        if (activityQueue.Count > 0){
+            activityQueue.RemoveLast();
+            Destroy(iconList[iconList.Count - 1]);
+            iconList.RemoveAt(iconList.Count-1);
+        }
+        
     }
 
+    //Used for Clear Queue Button (not yet implemented)
     public void ClearQueue(){
         activityQueue.Clear();
     }
