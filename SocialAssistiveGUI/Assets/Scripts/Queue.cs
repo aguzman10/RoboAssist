@@ -12,15 +12,19 @@ public class Queue : ScriptableObject
     private LinkedList<MotionObject> activityQueue = new LinkedList<MotionObject>();
     private List<GameObject> iconList = new List<GameObject>();
 
+    public string qName;
+
+    private struct node
+    {
+        string name;
+        LinkedList<MotionObject> q;
+    }
+
     //used to create sprites in sliding window, need an offset variable to 
     public GameObject prefabIcon;
 
     private static GameObject contentWindow;
 
-    /*public void Start()
-    {
-        contentWindow = GameObject.Find("Content");
-    }*/
 
     //Add motion to queue, currently used on all Motionbuttons
     public void AddMotion(MotionObject motion)
@@ -29,7 +33,6 @@ public class Queue : ScriptableObject
         contentWindow = GameObject.Find("Content"); //Any way to do this only once? Can't use start function (SCRIPTABLE OBJECT TYPE)
         GameObject icon = Instantiate(prefabIcon, contentWindow.transform);
         iconList.Add(icon);
-        
 
         TextMeshProUGUI ltext = icon.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
         ltext.text = activityQueue.Count.ToString();
@@ -70,8 +73,18 @@ public class Queue : ScriptableObject
     public void CopyCurrent(){
 
     }
+
     //Possibly not Void, return JSON string? Used in Save Button.
     public void SaveQueue(){
-
+        Debug.Log(qName);
     }
+
+    /*private void WriteJsonToFile(string fileName, string json)
+    {
+        string path = Application.dataPath + "/"; // Assets folder
+        if (!File.Exists(path + fileName))
+            System.IO.File.WriteAllText(path + fileName, json);
+        else
+            print("File already exists.");
+    }*/
 }
