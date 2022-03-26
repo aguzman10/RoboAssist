@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5f223882b35df4b8ea7c288ac30ba5, type: 3}
   m_Name: LookLeft
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
   MotionType: LookLeft
+  imageLocation: MotionIcons/NeckLeft
   description: 
