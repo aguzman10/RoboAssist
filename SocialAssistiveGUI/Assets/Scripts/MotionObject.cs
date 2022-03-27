@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New MotionObject", menuName = "MotionObject")]
 [System.Serializable]
-public class MotionObject : ScriptableObject{
+public class MotionObject{
     public string MotionType; //StringIdentifier
     public string imageLocation; //String Location through Assets
     [TextArea(15,20)]

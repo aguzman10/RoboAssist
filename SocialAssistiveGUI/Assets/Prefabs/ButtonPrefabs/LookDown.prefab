@@ -147,3 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   motion: {fileID: 11400000, guid: 8c23df50941b64f44919a150e5c906be, type: 2}
+  mtype: LookDown
+  imageloc: MotionIcons/NeckDown
+  desc: 

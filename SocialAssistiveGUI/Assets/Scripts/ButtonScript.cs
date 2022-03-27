@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
 public class ButtonScript : MonoBehaviour
 {
     public Queue _queue;
-    public MotionObject motion;
+
+    public string mtype, imageloc, desc;
+
     public void AddMotiontoQueue()
     {
+        MotionObject motion = new MotionObject(mtype, imageloc, desc);
         _queue.AddMotion(motion);
     }
     public void DisplayQueue()

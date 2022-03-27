@@ -147,3 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   motion: {fileID: 11400000, guid: ad57dcbe80e5d6e4d83f26e02e5b76ca, type: 2}
+  mtype: RLegStanding
+  imageloc: MotionIcons/RLeg
+  desc: 
