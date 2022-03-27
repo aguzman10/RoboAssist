@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using Newtonsoft.Json;
 
 [CreateAssetMenu(fileName = "New Activity Queue", menuName = "ActivityQueues")]
 public class Queue : ScriptableObject
@@ -12,13 +14,25 @@ public class Queue : ScriptableObject
     private LinkedList<MotionObject> activityQueue = new LinkedList<MotionObject>();
     private List<GameObject> iconList = new List<GameObject>();
 
+    // String containing the name of a specific activity queue
     public string qName;
 
-    private struct node
+    /*/Class containing a queue's name and array of motion objects
+    [Serializable]
+    public class node
     {
-        string name;
-        LinkedList<MotionObject> q;
+        public node(string name, MotionObject[] q)
+        {
+            this.name = name;
+            this.q = q;
+        }
+
+        public string name;
+        public MotionObject[] q;
     }
+    */
+
+    public Dictionary<string, LinkedList<MotionObject>> qDictionary = new Dictionary<string, LinkedList<MotionObject>>();
 
     //used to create sprites in sliding window, need an offset variable to 
     public GameObject prefabIcon;
@@ -76,15 +90,24 @@ public class Queue : ScriptableObject
 
     //Possibly not Void, return JSON string? Used in Save Button.
     public void SaveQueue(){
-        Debug.Log(qName);
+        // if the dictionary doesn't contain a queue with the current qname, then add the queue to the dictionary
+        if (!qDictionary.ContainsKey(qName))
+        {
+            qDictionary.Add(qName, activityQueue);
+        }
+        else
+        {
+            Debug.Log("Queue already exists!");
+        }        
+
+        string json = JsonConvert.SerializeObject(qDictionary);
+
+        WriteJsonToFile("Queues.txt", json);
     }
 
-    /*private void WriteJsonToFile(string fileName, string json)
+    private void WriteJsonToFile(string fileName, string json)
     {
-        string path = Application.dataPath + "/"; // Assets folder
-        if (!File.Exists(path + fileName))
-            System.IO.File.WriteAllText(path + fileName, json);
-        else
-            print("File already exists.");
-    }*/
+        string path = Application.dataPath + "/SavedItems/"; // SavedItems folder
+        File.WriteAllText(path + fileName, json);
+    }
 }
