@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
+using Newtonsoft.Json;
 
 [CreateAssetMenu(fileName = "New Activity Queue", menuName = "ActivityQueues")]
 public class Queue : ScriptableObject
@@ -12,15 +14,31 @@ public class Queue : ScriptableObject
     private LinkedList<MotionObject> activityQueue = new LinkedList<MotionObject>();
     private List<GameObject> iconList = new List<GameObject>();
 
+    // String containing the name of a specific activity queue
+    public string qName;
+
+    /*/Class containing a queue's name and array of motion objects
+    [Serializable]
+    public class node
+    {
+        public node(string name, MotionObject[] q)
+        {
+            this.name = name;
+            this.q = q;
+        }
+
+        public string name;
+        public MotionObject[] q;
+    }
+    */
+
+    public Dictionary<string, LinkedList<MotionObject>> qDictionary = new Dictionary<string, LinkedList<MotionObject>>();
+
     //used to create sprites in sliding window, need an offset variable to 
     public GameObject prefabIcon;
 
     private static GameObject contentWindow;
 
-    /*public void Start()
-    {
-        contentWindow = GameObject.Find("Content");
-    }*/
 
     //Add motion to queue, currently used on all Motionbuttons
     public void AddMotion(MotionObject motion)
@@ -29,7 +47,6 @@ public class Queue : ScriptableObject
         contentWindow = GameObject.Find("Content"); //Any way to do this only once? Can't use start function (SCRIPTABLE OBJECT TYPE)
         GameObject icon = Instantiate(prefabIcon, contentWindow.transform);
         iconList.Add(icon);
-        
 
         TextMeshProUGUI ltext = icon.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
         ltext.text = activityQueue.Count.ToString();
@@ -66,12 +83,36 @@ public class Queue : ScriptableObject
     }
 
     //Copies Current Queue to Simulation (simulation can remove freely)
-    //Probably not void unless a reference is used.
-    public void CopyCurrent(){
-
+ 
+    public LinkedList<string> CopyCurrent(){
+        LinkedList<string> _q = new LinkedList<string>();
+        foreach (var item in activityQueue)
+        {
+            _q.AddLast(item.MotionType);
+        }
+        return _q;
     }
-    //Possibly not Void, return JSON string? Used in Save Button.
-    public void SaveQueue(){
 
+    //Used in Save Button.
+    public void SaveQueue(){
+        // if the dictionary doesn't contain a queue with the current qname, then add the queue to the dictionary
+        if (!qDictionary.ContainsKey(qName))
+        {
+            qDictionary.Add(qName, activityQueue);
+        }
+        else
+        {
+            Debug.Log("Queue already exists!");
+        }        
+
+        string json = JsonConvert.SerializeObject(qDictionary);
+
+        WriteJsonToFile("Queues.txt", json);
+    }
+
+    private void WriteJsonToFile(string fileName, string json)
+    {
+        string path = Application.dataPath + "/SavedItems/"; // SavedItems folder
+        File.WriteAllText(path + fileName, json);
     }
 }
