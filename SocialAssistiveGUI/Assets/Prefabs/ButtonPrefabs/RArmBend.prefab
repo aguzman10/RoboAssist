@@ -147,3 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   motion: {fileID: 11400000, guid: f6fcd6b9506175e4492bb0d1569f322d, type: 2}
+  mtype: RArmBend
+  imageloc: MotionIcons/RBend
+  desc: 
