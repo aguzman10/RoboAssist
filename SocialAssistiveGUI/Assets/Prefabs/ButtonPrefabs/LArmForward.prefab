@@ -145,5 +145,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b51650b1e66415488a45d5361af03e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _queue: {fileID: 11400000, guid: e0a81bcf701a8a449b5eb7f57762920f, type: 2}
+  _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   motion: {fileID: 11400000, guid: bbff6087911f3ba428ab2b3b06f39d4d, type: 2}
