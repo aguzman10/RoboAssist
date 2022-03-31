@@ -137,7 +137,7 @@ public class testSimulation : MonoBehaviour
 
             // Save user performance here
 
-            UnityEditor.EditorApplication.isPlaying = false; // Terminates program execution in Unity Editor
+            //UnityEditor.EditorApplication.isPlaying = false; // Terminates program execution in Unity Editor
         }
     }
 
