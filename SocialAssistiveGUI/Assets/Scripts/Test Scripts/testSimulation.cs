@@ -6,6 +6,8 @@ public class testSimulation : MonoBehaviour
 {
     System.Random rnd = new System.Random(); // Namespace conflict between UnityEngine and System, specify System.Random
 
+    public Queue q;
+
     LinkedList<string> activityQueue = new LinkedList<string>(); // Linked list of movements user should perform
     LinkedList<string>.Enumerator node; // Enumerator to parse linked list
     SimulatedUser user; // Simulated user
@@ -27,13 +29,10 @@ public class testSimulation : MonoBehaviour
 
     // Start is called before the first frame update
     // Start State
-    void Start()
+    public void StartSimulation()
     {
         // Initialize linked list
-        activityQueue.AddLast("right arm up");
-        activityQueue.AddLast("right arm down");
-        activityQueue.AddLast("left arm up");
-        activityQueue.AddLast("left arm down");
+        activityQueue = q.CopyCurrent();
         node = activityQueue.GetEnumerator();
         node.MoveNext();
         
