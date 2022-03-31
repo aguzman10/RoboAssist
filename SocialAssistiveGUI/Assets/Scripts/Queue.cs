@@ -83,12 +83,17 @@ public class Queue : ScriptableObject
     }
 
     //Copies Current Queue to Simulation (simulation can remove freely)
-    //Probably not void unless a reference is used.
-    public void CopyCurrent(){
-
+ 
+    public LinkedList<string> CopyCurrent(){
+        LinkedList<string> _q = new LinkedList<string>();
+        foreach (var item in activityQueue)
+        {
+            _q.AddLast(item.MotionType);
+        }
+        return _q;
     }
 
-    //Possibly not Void, return JSON string? Used in Save Button.
+    //Used in Save Button.
     public void SaveQueue(){
         // if the dictionary doesn't contain a queue with the current qname, then add the queue to the dictionary
         if (!qDictionary.ContainsKey(qName))

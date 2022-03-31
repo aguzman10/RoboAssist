@@ -23,7 +23,6 @@ public class OpenQueueJson : MonoBehaviour
             _queue.qDictionary = new Dictionary<string, LinkedList<MotionObject>>();
         }
 
-
     }
 
 }
