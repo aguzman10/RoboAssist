@@ -4,7 +4,10 @@ public class SimulatedUser
     private string _name;
     private int _numCorrect; // Number of correct movements
     private int _numIncorrect; // Number of incorrect movements
-    private string[] _movements = new string[] { "right arm up", "left arm up", "right arm down", "left arm down" }; // Possible movements user can make
+    private string[] _movements = new string[] { "LookLeft", "LookUp", "LookDown", "LookRight", "LArmOut",
+                                                 "LArmAcross", "RArmAcross", "RArmOut", "LArmForward", "RArmForward", 
+                                                 "LArmUp", "RArmUp", "LArmBend", "RArmBend", "LLegMoveStanding", "RLegMoveStanding", 
+                                                 "LLegMoveSitting", "RLegMoveSitting" }; // Possible movements user can make
 
     public string targetMovement; // Movement user should perform
     public string chosenMovement; // Movement the user did perform
