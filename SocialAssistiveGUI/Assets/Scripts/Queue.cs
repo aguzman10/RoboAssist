@@ -17,21 +17,6 @@ public class Queue : ScriptableObject
     // String containing the name of a specific activity queue
     public string qName;
 
-    /*/Class containing a queue's name and array of motion objects
-    [Serializable]
-    public class node
-    {
-        public node(string name, MotionObject[] q)
-        {
-            this.name = name;
-            this.q = q;
-        }
-
-        public string name;
-        public MotionObject[] q;
-    }
-    */
-
     public Dictionary<string, LinkedList<MotionObject>> qDictionary = new Dictionary<string, LinkedList<MotionObject>>();
 
     //used to create sprites in sliding window, need an offset variable to 
@@ -80,6 +65,11 @@ public class Queue : ScriptableObject
     //Used for Clear Queue Button (not yet implemented)
     public void ClearQueue(){
         activityQueue.Clear();
+        foreach(GameObject x in iconList)
+        {
+         Destroy(x);
+        }
+        iconList.Clear();
     }
 
     //Copies Current Queue to Simulation (simulation can remove freely)
@@ -102,12 +92,39 @@ public class Queue : ScriptableObject
         }
         else
         {
-            Debug.Log("Queue already exists!");
+            Debug.Log("Queue already exists!"); //IMPLEMENT THIS
         }        
 
         string json = JsonConvert.SerializeObject(qDictionary);
 
         WriteJsonToFile("Queues.txt", json);
+    }
+
+    public void LoadQueue(string key){
+        ClearQueue();
+        activityQueue = new LinkedList<MotionObject>(qDictionary[key]);
+        LoadIcons();
+    }
+
+    public void LoadIcons(){
+        int count = 1;
+        TextMeshProUGUI ltext;
+        contentWindow = GameObject.Find("Content"); //Any way to do this only once? Can't use start function (SCRIPTABLE OBJECT TYPE)
+        foreach (var item in activityQueue)
+        {
+            GameObject icon = Instantiate(prefabIcon, contentWindow.transform);
+            iconList.Add(icon);
+
+            ltext = icon.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+            ltext.text = count.ToString();
+
+            var img = Resources.Load<Sprite>(item.imageLocation);
+            var imageLinker = icon.GetComponent<Image>();
+            var transformLinker = icon.GetComponent<Transform>();
+
+            imageLinker.sprite = img;
+            count++;
+        }
     }
 
     private void WriteJsonToFile(string fileName, string json)

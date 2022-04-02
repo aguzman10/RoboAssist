@@ -28,4 +28,10 @@ public class ButtonScript : MonoBehaviour
         _queue.qName = ltext.text;
         _queue.SaveQueue();
     }
+
+    public void LoadQueueButton(){
+        TMP_Dropdown m_Dropdown = gameObject.transform.parent.GetChild(2).GetComponent<TMP_Dropdown>();
+        string selected = m_Dropdown.options[m_Dropdown.value].text;
+        _queue.LoadQueue(selected);
+    }
 }
