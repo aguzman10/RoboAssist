@@ -7,7 +7,15 @@ public class ButtonScript : MonoBehaviour
 {
     public Queue _queue;
 
+    public TooltipTrigger trigger;
+
     public string mtype, imageloc, desc;
+
+    private void Start()
+    {
+        trigger.setDescription(desc);
+        trigger.setName(mtype);
+    }
 
     public void AddMotiontoQueue()
     {
