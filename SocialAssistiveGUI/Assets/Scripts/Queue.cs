@@ -88,10 +88,11 @@ public class Queue : ScriptableObject
         // if the dictionary doesn't contain a queue with the current qname, then add the queue to the dictionary
         if (!qDictionary.ContainsKey(qName))
         {
-            qDictionary.Add(qName, activityQueue);
+            qDictionary.Add(qName, new LinkedList<MotionObject>(activityQueue));
         }
         else
         {
+
             Debug.Log("Queue already exists!"); //IMPLEMENT THIS
         }        
 
