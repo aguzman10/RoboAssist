@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: 8027101992502946725}
   mtype: RArmOut
   imageloc: MotionIcons/ROut
-  desc: 
 --- !u!114 &8027101992502946725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: RArmOut

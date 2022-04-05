@@ -2,24 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class ButtonScript : MonoBehaviour
 {
     public Queue _queue;
 
-    public TooltipTrigger trigger;
-
-    public string mtype, imageloc, desc;
-
-    private void Start()
-    {
-        trigger.setDescription(desc);
-        trigger.setName(mtype);
-    }
+    public string mtype, imageloc;
 
     public void AddMotiontoQueue()
     {
-        MotionObject motion = new MotionObject(mtype, imageloc, desc);
+        MotionObject motion = new MotionObject(mtype, imageloc);
         _queue.AddMotion(motion);
     }
     public void DisplayQueue()
@@ -32,9 +25,16 @@ public class ButtonScript : MonoBehaviour
     }
 
     public void SaveQueueButton(){
-        TextMeshProUGUI ltext = gameObject.transform.parent.GetChild(1).GetChild(0).GetChild(2).GetComponent<TMPro.TextMeshProUGUI>();
-        _queue.qName = ltext.text;
-        _queue.SaveQueue();
+        //TextMeshProUGUI ltext = gameObject.transform.parent.GetChild(1).GetChild(0).GetChild(2).GetComponent<TMPro.TextMeshProUGUI>();
+        TMP_InputField ltext = gameObject.transform.parent.GetChild(1).GetComponent<TMP_InputField>();
+        string qName = ltext.text;
+        if(string.IsNullOrEmpty(qName)){
+            Debug.Log("Empty Name: Please Enter Valid Name");
+        }
+        else{
+            _queue.qName = qName;
+            _queue.SaveQueue();
+        }
     }
 
     public void LoadQueueButton(){

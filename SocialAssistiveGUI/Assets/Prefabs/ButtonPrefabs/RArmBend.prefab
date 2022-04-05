@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: -4245226629348177025}
   mtype: RArmBend
   imageloc: MotionIcons/RBend
-  desc: 
 --- !u!114 &-4245226629348177025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: RArmBend

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
+using System;
 
 public class OpenQueueJson : MonoBehaviour
 {
@@ -16,7 +17,12 @@ public class OpenQueueJson : MonoBehaviour
         if (File.Exists(filename))
         {
             json = File.ReadAllText(filename);
-            _queue.qDictionary = JsonConvert.DeserializeObject<Dictionary<string, LinkedList<MotionObject>>>(json);
+            if (String.IsNullOrEmpty(json)){
+                _queue.qDictionary = new Dictionary<string, LinkedList<MotionObject>>();
+            }
+            else{
+                _queue.qDictionary = JsonConvert.DeserializeObject<Dictionary<string, LinkedList<MotionObject>>>(json);
+            }
         }
         else
         {

@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: 9218756098386281184}
   mtype: LookUp
   imageloc: MotionIcons/NeckUp
-  desc: 
 --- !u!114 &9218756098386281184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: LookUp

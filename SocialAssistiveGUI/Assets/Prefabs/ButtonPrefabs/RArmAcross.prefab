@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: 4507601670064521164}
   mtype: RArmAcross
   imageloc: MotionIcons/RAcross
-  desc: 
 --- !u!114 &4507601670064521164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: RArmAcross

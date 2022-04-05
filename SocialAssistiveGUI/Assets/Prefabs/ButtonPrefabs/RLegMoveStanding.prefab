@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: -8653984766224379499}
   mtype: RLegStanding
   imageloc: MotionIcons/RLeg
-  desc: 
 --- !u!114 &-8653984766224379499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: RLegStanding

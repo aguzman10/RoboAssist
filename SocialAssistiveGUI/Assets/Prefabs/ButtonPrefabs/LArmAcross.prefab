@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: -1508511546736733989}
   mtype: LArmAcross
   imageloc: MotionIcons/LAcross
-  desc: Move your left arm over towards your right arm.
 --- !u!114 &-1508511546736733989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: LArmAcross

@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: -1374684158267198063}
   mtype: LArmOut
   imageloc: MotionIcons/LOut
-  desc: 
 --- !u!114 &-1374684158267198063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: LArmOut

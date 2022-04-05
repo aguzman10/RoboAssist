@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: -8429236011576575283}
   mtype: LookRight
   imageloc: MotionIcons/NeckRight
-  desc: 
 --- !u!114 &-8429236011576575283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: LookRight

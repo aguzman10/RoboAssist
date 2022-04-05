@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: 2484050670757414638}
   mtype: RArmForward
   imageloc: MotionIcons/RForward
-  desc: 
 --- !u!114 &2484050670757414638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: RArmForward

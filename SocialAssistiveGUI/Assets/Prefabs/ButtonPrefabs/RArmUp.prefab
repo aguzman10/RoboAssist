@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: 5129275137072162042}
   mtype: RArmUp
   imageloc: MotionIcons/RUp
-  desc: 
 --- !u!114 &5129275137072162042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: RArmUp

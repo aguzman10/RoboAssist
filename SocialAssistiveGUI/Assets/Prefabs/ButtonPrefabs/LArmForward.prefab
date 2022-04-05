@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: 244727586165728422}
   mtype: LArmForward
   imageloc: MotionIcons/LForward
-  desc: Move your left arm out in front of you.
 --- !u!114 &244727586165728422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: LArmForward

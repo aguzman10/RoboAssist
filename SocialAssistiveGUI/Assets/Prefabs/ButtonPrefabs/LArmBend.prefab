@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: -5558707941890635728}
   mtype: LArmBend
   imageloc: MotionIcons/LBend
-  desc: Bend your left arm like you are doing a curl.
 --- !u!114 &-5558707941890635728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: LArmBend

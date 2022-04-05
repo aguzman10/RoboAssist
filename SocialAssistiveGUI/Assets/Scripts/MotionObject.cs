@@ -6,12 +6,8 @@ using UnityEngine;
 public class MotionObject{
     public string MotionType; //StringIdentifier
     public string imageLocation; //String Location through Assets
-    [TextArea(15,20)]
-    public string description; //String Tooltip description
 
-    public MotionObject(string motion, string imageloc, string desc){
-        MotionType = motion;
+    public MotionObject(string motion, string imageloc){
         imageLocation = imageloc;
-        description = desc;
     }
 }

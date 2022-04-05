@@ -150,7 +150,6 @@ MonoBehaviour:
   trigger: {fileID: -3455312061163229484}
   mtype: LArmUp
   imageloc: MotionIcons/LUp
-  desc: Reach your left arm towards the sky.
 --- !u!114 &-3455312061163229484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,4 +163,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desc: 
-  objName: 
+  objName: LArmUp
