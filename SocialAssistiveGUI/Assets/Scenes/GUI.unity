@@ -383,10 +383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
-  trigger: {fileID: 0}
   mtype: 
   imageloc: 
-  desc: 
 --- !u!1 &15047319
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,6 +4316,7 @@ GameObject:
   - component: {fileID: 1162358232}
   - component: {fileID: 1162358231}
   - component: {fileID: 1162358230}
+  - component: {fileID: 1162358233}
   m_Layer: 5
   m_Name: RunButton
   m_TagString: Untagged
@@ -4438,6 +4437,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162358228}
   m_CullTransparentMesh: 1
+--- !u!114 &1162358233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162358228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Run Activity
 --- !u!1 &1164640853
 GameObject:
   m_ObjectHideFlags: 0
@@ -6209,6 +6222,7 @@ GameObject:
   - component: {fileID: 1644751620}
   - component: {fileID: 1644751619}
   - component: {fileID: 1644751618}
+  - component: {fileID: 1644751622}
   m_Layer: 5
   m_Name: LoadButton
   m_TagString: Untagged
@@ -6248,10 +6262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
-  trigger: {fileID: 0}
   mtype: 
   imageloc: 
-  desc: 
 --- !u!114 &1644751619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6346,6 +6358,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644751616}
   m_CullTransparentMesh: 1
+--- !u!114 &1644751622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644751616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Load Selected Queue
 --- !u!1 &1667474728
 GameObject:
   m_ObjectHideFlags: 0
@@ -6999,6 +7025,7 @@ GameObject:
   - component: {fileID: 1795069910}
   - component: {fileID: 1795069909}
   - component: {fileID: 1795069908}
+  - component: {fileID: 1795069912}
   - component: {fileID: 1795069911}
   m_Layer: 5
   m_Name: UndoButton
@@ -7133,10 +7160,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
-  trigger: {fileID: 0}
   mtype: 
   imageloc: 
+--- !u!114 &1795069912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795069906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   desc: 
+  objName: Remove Last Motion
 --- !u!1 &1795821264
 GameObject:
   m_ObjectHideFlags: 0
@@ -7491,6 +7530,7 @@ GameObject:
   - component: {fileID: 1853874597}
   - component: {fileID: 1853874596}
   - component: {fileID: 1853874595}
+  - component: {fileID: 1853874599}
   m_Layer: 5
   m_Name: SaveButton
   m_TagString: Untagged
@@ -7530,10 +7570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
-  trigger: {fileID: 0}
   mtype: 
   imageloc: 
-  desc: 
 --- !u!114 &1853874596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7628,6 +7666,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853874593}
   m_CullTransparentMesh: 1
+--- !u!114 &1853874599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853874593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Save Queue to System
 --- !u!1001 &1863679242
 PrefabInstance:
   m_ObjectHideFlags: 0
