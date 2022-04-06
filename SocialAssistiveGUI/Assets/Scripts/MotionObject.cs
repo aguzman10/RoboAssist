@@ -8,6 +8,7 @@ public class MotionObject{
     public string imageLocation; //String Location through Assets
 
     public MotionObject(string motion, string imageloc){
+        MotionType = motion;
         imageLocation = imageloc;
     }
 }
