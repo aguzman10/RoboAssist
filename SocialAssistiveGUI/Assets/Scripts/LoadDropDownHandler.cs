@@ -7,9 +7,9 @@ using TMPro;
 public class LoadDropDownHandler : MonoBehaviour
 {
     public Queue q;
-    // Start is called before the first frame update
     TMP_Dropdown m_Dropdown;
 
+    //Populates the LoadDropdown using default Queue dictionary (system).
     public void PopulateDropDown(){
         List<string> keyList = new List<string>(q.qDictionary.Keys);
 
