@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class testSimulation : MonoBehaviour
 {
-    System.Random rnd = new System.Random(); // Namespace conflict between UnityEngine and System, specify System.Random
-    
     public Queue q;
-
     LinkedList<string> activityQueue = new LinkedList<string>(); // Linked list of movements user should perform
     LinkedList<string>.Enumerator node; // Enumerator to parse linked list
     SimulatedUser user; // Simulated user
@@ -17,16 +14,13 @@ public class testSimulation : MonoBehaviour
     bool simulationRunning = false; // Determines if start button on GUI has been pressed
     bool notPlayingVisited = false; // To trigger Playing Poorly
     int consecWrong = 0; // Number of consecutively wrong movements made
-    double chance; // Used to determine if simulated user should perform a movement or not
     string timestamp; // Timestamp that state is entered
     string message; // Message to be displayed
 
     public float waitTime = 2.0f; // Threshold to trigger Not Playing
     public string userName = "Misty"; // Name of simulated user
-    public double notPlayingChance = 0.25f; // Chance the simulated user does not make a move in time
     public int wellThreshold = 3; // Threshold to trigger Playing Well
     public int poorlyThreshold = 3; // Threshold to trigger Playing Poorly
-    public int maxCycles = 5; // Maximum number of times the do while loop will execute (prevents infinite loop in when trying to test Not Playing State)
     
     // Start is called before the first frame update
     // Start State
@@ -50,6 +44,9 @@ public class testSimulation : MonoBehaviour
         simulationRunning = true;
         message = "";
         finished = false;
+        DemonstrateMovement();
+        
+
     }
 
     // Called once per frame
@@ -64,11 +61,10 @@ public class testSimulation : MonoBehaviour
     // LateUpdate() called after Update() finishes
     private void FixedUpdate()
     {
-        
+
         if (notPlayingVisited == false) // Ensure Not Playing is visited at least once for testing purposes
         {
-            print("waiting");
-            if (timer.elapsedTime > waitTime) 
+            if (timer.elapsedTime > waitTime) // Makes sure the activity timer is functioning correctly
             { 
                 GetTimeStamp();
                 message = "Please perform a movement.";
@@ -89,15 +85,15 @@ public class testSimulation : MonoBehaviour
             else // Stable State
             {
                 GetTimeStamp();
-                chance = rnd.NextDouble();
-                if (chance > notPlayingChance) // User should perform a movement
+                GetUserMovement(); // Get user movement
+                if (user.chosenMovement != "no movement") // User should perform a movement
                 {
-                    user.GenerateMovement(); // Perform a movement
-                    timer.ResetTimer(); // Reset timer
+                    //user.GenerateMovement(); // Perform a movement
+                    timer.ResetTimer(); // Reset timer once user has performed a movement
 
-                    if (user.chosenMovement == user.targetMovement) // User performed correct movement
+                    if (user.chosenMovement == node.Current) // User performed correct movement
                     {
-                        consecWrong = 0;
+                        consecWrong = 0; // Reset the number of conescutively wrong movements the user has performed
 
                         if (user.GetNumCorrect() % wellThreshold == 0) // Playing Well State
                         {
@@ -106,15 +102,17 @@ public class testSimulation : MonoBehaviour
                         }
                         else // Correct Movement State
                         {
-                           GetTimeStamp();
+                            GetTimeStamp();
                             message = "Correct!";
                         }
                         if (!node.MoveNext()) // Move to next node in linked list
                             finished = true; // If no more nodes in linked list, acitivity exercise finished
+                        else
+                            user.targetMovement = node.Current; // Set user's target movement to the new motion to be performed
                     }
                     else // User performed an incorrect movement
                     {
-                        consecWrong++;
+                        consecWrong++; // Increment the number of consecutively wrong movements the user has performed
 
                         if (consecWrong >= poorlyThreshold) // Playing Poorly State
                         {
@@ -135,6 +133,7 @@ public class testSimulation : MonoBehaviour
         {
             GetTimeStamp();
             DisplayMessage(); // Display Message State
+            DemonstrateMovement(); // Robot demonstrates next motion to be performed
         }
 
         if (finished) // Finished State
@@ -142,17 +141,34 @@ public class testSimulation : MonoBehaviour
             Time.timeScale = 0f;
             GetTimeStamp();
             timer.StopTimer();
-            print("You finished your exercise activity! Good job!");
-            print("Number of correct movements: " + user.GetNumCorrect());
-            print("Number of incorrect movements: " + user.GetNumIncorrect());
-
+            DisplayMessage();
+            CongratulatoryBehavior();
+            
             // Save user performance here
 
             UnityEditor.EditorApplication.isPlaying = false; // Terminates program execution in Unity Editor
         }
     }
 
-    
+    // Function for robot to detect user movement
+    private void GetUserMovement()
+    {
+        user.GenerateMovement(); // Simulates getting user input
+    }
+
+    // Function for robot to demonstrate which motion the user should perform
+    private void DemonstrateMovement()
+    {
+        print("Try to perform this movement: " + node.Current);
+    }
+
+    // Function for robot demonstrating congratulatory behavior
+    private void CongratulatoryBehavior()
+    {
+        print("You finished your exercise activity! Good job!");
+        print("Number of correct movements: " + user.GetNumCorrect());
+        print("Number of incorrect movements: " + user.GetNumIncorrect());
+    }
 
     // Grabs timestamp (should be called each time a state is entered)
     private void GetTimeStamp()
