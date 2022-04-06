@@ -24,6 +24,10 @@ public class ButtonScript : MonoBehaviour
         _queue.RemoveLast();
     }
 
+    public void ClearQueue(){
+        _queue.ClearQueue();
+    }
+
     public void SaveQueueButton(){
         //TextMeshProUGUI ltext = gameObject.transform.parent.GetChild(1).GetChild(0).GetChild(2).GetComponent<TMPro.TextMeshProUGUI>();
         TMP_InputField ltext = gameObject.transform.parent.GetChild(1).GetComponent<TMP_InputField>();
@@ -39,7 +43,24 @@ public class ButtonScript : MonoBehaviour
 
     public void LoadQueueButton(){
         TMP_Dropdown m_Dropdown = gameObject.transform.parent.GetChild(2).GetComponent<TMP_Dropdown>();
-        string selected = m_Dropdown.options[m_Dropdown.value].text;
-        _queue.LoadQueue(selected);
+        if (m_Dropdown.options.Count > 0){
+            string selected = m_Dropdown.options[m_Dropdown.value].text;
+            _queue.LoadQueue(selected);
+        }
+        else {
+            Debug.Log("No Queues to Load");
+        }
+    }
+
+    public void RemoveSelectedQueue(){
+        TMP_Dropdown m_Dropdown = gameObject.transform.parent.GetChild(2).GetComponent<TMP_Dropdown>();
+        if (m_Dropdown.options.Count > 0){
+            string selected = m_Dropdown.options[m_Dropdown.value].text;
+            _queue.RemoveQueue(selected);
+        }
+        else {
+            Debug.Log("No Queues to Remove");
+        }
+        
     }
 }

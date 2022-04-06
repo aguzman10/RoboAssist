@@ -62,7 +62,7 @@ public class Queue : ScriptableObject
         
     }
 
-    //Used for Clear Queue Button (not yet implemented)
+    //Used for Clear Queue Button and Loading a Queue
     public void ClearQueue(){
         activityQueue.Clear();
         foreach(GameObject x in iconList)
@@ -105,6 +105,12 @@ public class Queue : ScriptableObject
         ClearQueue();
         activityQueue = new LinkedList<MotionObject>(qDictionary[key]);
         LoadIcons();
+    }
+
+    public void RemoveQueue(string key){
+        qDictionary.Remove(key);
+        string json = JsonConvert.SerializeObject(qDictionary);
+        WriteJsonToFile("Queues.txt", json);
     }
 
     public void LoadIcons(){

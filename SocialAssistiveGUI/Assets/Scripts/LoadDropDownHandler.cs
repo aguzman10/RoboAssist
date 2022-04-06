@@ -19,7 +19,5 @@ public class LoadDropDownHandler : MonoBehaviour
         m_Dropdown.ClearOptions();
         //Add the options created in the List above
         m_Dropdown.AddOptions(keyList);
-
-
     }
 }
