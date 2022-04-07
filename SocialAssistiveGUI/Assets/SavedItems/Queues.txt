@@ -1,0 +1,1 @@
+{"Neck":[{"MotionType":"LookLeft","imageLocation":"MotionIcons/NeckLeft"},{"MotionType":"LookUp","imageLocation":"MotionIcons/NeckUp"},{"MotionType":"LookDown","imageLocation":"MotionIcons/NeckDown"},{"MotionType":"LookRight","imageLocation":"MotionIcons/NeckRight"}]}
