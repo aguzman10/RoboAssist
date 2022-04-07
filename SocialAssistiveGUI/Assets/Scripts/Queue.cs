@@ -145,4 +145,8 @@ public class Queue : ScriptableObject
         string path = Application.dataPath + "/SavedItems/"; // SavedItems folder
         File.WriteAllText(path + fileName, json);
     }
+
+    public bool isEmpty(){
+        return (activityQueue.Count == 0);
+    }
 }

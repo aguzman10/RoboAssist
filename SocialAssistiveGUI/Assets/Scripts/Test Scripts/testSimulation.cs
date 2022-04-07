@@ -30,23 +30,26 @@ public class testSimulation : MonoBehaviour
     }
     public void StartSimulation()
     {
-        // Initialize linked list
-        activityQueue = q.CopyCurrent();
-        node = activityQueue.GetEnumerator();
-        node.MoveNext();
-        
-        user = new SimulatedUser(userName);
-        user.targetMovement = node.Current;
+        if (! q.isEmpty()){
+            // Initialize linked list
+            activityQueue = q.CopyCurrent();
+            node = activityQueue.GetEnumerator();
+            node.MoveNext();
+            
+            user = new SimulatedUser(userName);
+            user.targetMovement = node.Current;
 
-        //GetTimeStamp();
-        timer.StartTimer();
-        Time.timeScale = 1f;
-        simulationRunning = true;
-        message = "";
-        finished = false;
-        DemonstrateMovement();
-        
-
+            //GetTimeStamp();
+            timer.StartTimer();
+            Time.timeScale = 1f;
+            simulationRunning = true;
+            message = "";
+            finished = false;
+            DemonstrateMovement();
+        }
+        else {
+            Debug.Log("Empty Queue!");
+        }
     }
 
     // Called once per frame
@@ -146,7 +149,7 @@ public class testSimulation : MonoBehaviour
             
             // Save user performance here
 
-            UnityEditor.EditorApplication.isPlaying = false; // Terminates program execution in Unity Editor
+            //UnityEditor.EditorApplication.isPlaying = false; // Terminates program execution in Unity Editor
         }
     }
 
