@@ -12,7 +12,7 @@ public class testSimulation : MonoBehaviour
 
     bool finished = false; // Determines if activity exercise is finished
     bool simulationRunning = false; // Determines if start button on GUI has been pressed
-    bool notPlayingVisited = false; // To trigger Playing Poorly
+    //bool notPlayingVisited = false; // To trigger Playing Poorly
     int consecWrong = 0; // Number of consecutively wrong movements made
     string timestamp; // Timestamp that state is entered
     string message; // Message to be displayed
@@ -21,13 +21,15 @@ public class testSimulation : MonoBehaviour
     public string userName = "Misty"; // Name of simulated user
     public int wellThreshold = 3; // Threshold to trigger Playing Well
     public int poorlyThreshold = 3; // Threshold to trigger Playing Poorly
+    public bool userIsPlaying = false;
     
     // Start is called before the first frame update
-    // Start State
     public void Start()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; // Used to prevent FixedUpdate() from running before StartSimulation() is executed
     }
+
+    // Start State
     public void StartSimulation()
     {
         // Initialize linked list
@@ -35,12 +37,12 @@ public class testSimulation : MonoBehaviour
         node = activityQueue.GetEnumerator();
         node.MoveNext();
         
-        user = new SimulatedUser(userName);
+        user = new SimulatedUser(userName, active: userIsPlaying);
         user.targetMovement = node.Current;
 
-        //GetTimeStamp();
+        GetTimeStamp();
         timer.StartTimer();
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Allows FixedUpdate() to run
         simulationRunning = true;
         message = "";
         finished = false;
@@ -58,76 +60,61 @@ public class testSimulation : MonoBehaviour
         }
     }
 
-    // LateUpdate() called after Update() finishes
+    // FixedUpdate() will execute once on application startup, and then stop whenever Time.timeScale is 0
     private void FixedUpdate()
     {
+        user.isPlaying = userIsPlaying;
 
-        if (notPlayingVisited == false) // Ensure Not Playing is visited at least once for testing purposes
+        if (timer.elapsedTime > waitTime) // Not playing state
         {
-            if (timer.elapsedTime > waitTime) // Makes sure the activity timer is functioning correctly
-            { 
-                GetTimeStamp();
-                message = "Please perform a movement.";
-                notPlayingVisited = true;
-                timer.ResetTimer();
-            }
+            GetTimeStamp();
+            message = "Please perform a movement.";
+            timer.ResetTimer();
         }
-        else
+        else // Stable State
         {
-            if (timer.elapsedTime > waitTime) // Not playing state
+            GetTimeStamp();
+            GetUserMovement(); // Get user movement
+            if (user.chosenMovement != "no movement") // User should perform a movement
             {
-                GetTimeStamp();
-                message = "Please perform a movement.";
-                notPlayingVisited = true;
-                timer.ResetTimer();
+                //user.GenerateMovement(); // Perform a movement
+                timer.ResetTimer(); // Reset timer once user has performed a movement
 
-            }
-            else // Stable State
-            {
-                GetTimeStamp();
-                GetUserMovement(); // Get user movement
-                if (user.chosenMovement != "no movement") // User should perform a movement
+                if (user.chosenMovement == node.Current) // User performed correct movement
                 {
-                    //user.GenerateMovement(); // Perform a movement
-                    timer.ResetTimer(); // Reset timer once user has performed a movement
+                    consecWrong = 0; // Reset the number of conescutively wrong movements the user has performed
 
-                    if (user.chosenMovement == node.Current) // User performed correct movement
+                    if (user.GetNumCorrect() % wellThreshold == 0) // Playing Well State
                     {
-                        consecWrong = 0; // Reset the number of conescutively wrong movements the user has performed
-
-                        if (user.GetNumCorrect() % wellThreshold == 0) // Playing Well State
-                        {
-                            GetTimeStamp();
-                            message = "Keep up the good work!";
-                        }
-                        else // Correct Movement State
-                        {
-                            GetTimeStamp();
-                            message = "Correct!";
-                        }
-                        if (!node.MoveNext()) // Move to next node in linked list
-                            finished = true; // If no more nodes in linked list, acitivity exercise finished
-                        else
-                            user.targetMovement = node.Current; // Set user's target movement to the new motion to be performed
+                        GetTimeStamp();
+                        message = "Keep up the good work!";
                     }
-                    else // User performed an incorrect movement
+                    else // Correct Movement State
                     {
-                        consecWrong++; // Increment the number of consecutively wrong movements the user has performed
+                        GetTimeStamp();
+                        message = "Correct!";
+                    }
+                    if (!node.MoveNext()) // Move to next node in linked list
+                        finished = true; // If no more nodes in linked list, acitivity exercise finished
+                    else
+                        user.targetMovement = node.Current; // Set user's target movement to the new motion to be performed
+                }
+                else // User performed an incorrect movement
+                {
+                    consecWrong++; // Increment the number of consecutively wrong movements the user has performed
 
-                        if (consecWrong >= poorlyThreshold) // Playing Poorly State
-                        {
-                            GetTimeStamp();
-                            message = "Don't give up!";
-                        }
-                        else // Incorrect Movement State
-                        {
-                            GetTimeStamp();
-                            message = "Incorrect!";
-                        }
+                    if (consecWrong >= poorlyThreshold) // Playing Poorly State
+                    {
+                        GetTimeStamp();
+                        message = "Don't give up!";
+                    }
+                    else // Incorrect Movement State
+                    {
+                        GetTimeStamp();
+                        message = "Incorrect!";
                     }
                 }
             }
-
         }
         if (!finished && simulationRunning && message != "") // Display State
         {
@@ -138,6 +125,7 @@ public class testSimulation : MonoBehaviour
 
         if (finished) // Finished State
         {
+            simulationRunning = false;
             Time.timeScale = 0f;
             GetTimeStamp();
             timer.StopTimer();
@@ -146,7 +134,6 @@ public class testSimulation : MonoBehaviour
             
             // Save user performance here
 
-            UnityEditor.EditorApplication.isPlaying = false; // Terminates program execution in Unity Editor
         }
     }
 

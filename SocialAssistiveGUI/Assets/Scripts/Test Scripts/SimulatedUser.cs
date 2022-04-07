@@ -11,15 +11,19 @@ public class SimulatedUser
 
     public string targetMovement; // Movement user should perform
     public string chosenMovement; // Movement the user did perform
-    public double incorrectChance = 0.5; // Chance of generating a wrong answer (user tunable)
-    public double notPlayingChance = 0.25f; // Chance user doesn't generate any movement input
+    public double incorrectChance; // Chance of generating a wrong answer (user tunable)
+    public double notPlayingChance; // Chance user doesn't generate any movement input
+    public bool isPlaying;
 
-    public SimulatedUser(string name)
+    public SimulatedUser(string name, double chanceIncorrect = 0.5f, double chanceNotPlaying = 0.25f, bool active = false)
     {
         _name = name;
         _numCorrect = 0;
         _numIncorrect = 0;
         chosenMovement = "no movement";
+        incorrectChance = chanceIncorrect;
+        notPlayingChance = chanceNotPlaying;
+        isPlaying = active;
     }
 
     // Randomly generates correct/incorrect user movement input
@@ -28,7 +32,7 @@ public class SimulatedUser
         System.Random rnd = new System.Random();
         double chance = rnd.NextDouble();
 
-        if (chance < notPlayingChance)
+        if (!isPlaying || chance < notPlayingChance)
             chosenMovement = "no movement";
         else
         {
