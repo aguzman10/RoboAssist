@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4533798719444987048}
   - component: {fileID: 4533798719444987049}
   - component: {fileID: 2379326443664256766}
+  - component: {fileID: -8653984766224379499}
   m_Layer: 5
   m_Name: RLegMoveStanding
   m_TagString: Untagged
@@ -146,7 +147,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
-  motion: {fileID: 11400000, guid: ad57dcbe80e5d6e4d83f26e02e5b76ca, type: 2}
+  trigger: {fileID: -8653984766224379499}
   mtype: RLegStanding
   imageloc: MotionIcons/RLeg
+--- !u!114 &-8653984766224379499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533798719444987051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   desc: 
+  objName: RLegStanding
