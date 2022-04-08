@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This class handles MotionButton lists active behavior
+//Probably a cleaner way to do this, but it was as I was first starting Unity and it works :)
 public class DropDownFunction : MonoBehaviour
 {
     public GameObject defaultList;
@@ -11,18 +13,7 @@ public class DropDownFunction : MonoBehaviour
     public GameObject lLegList;
     public GameObject rLegList;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Actual functionality with value being passed by the DropDown
     public void DropDownFunctioning(int value)
     {
         if (value == 0)

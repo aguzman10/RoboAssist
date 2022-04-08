@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6492657143697572815}
   - component: {fileID: 6492657143697572812}
   - component: {fileID: -6221257518624878589}
+  - component: {fileID: -3455312061163229484}
   m_Layer: 5
   m_Name: LArmUp
   m_TagString: Untagged
@@ -146,7 +147,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
-  motion: {fileID: 11400000, guid: dc024887680ef96478a8e57e3ca439f1, type: 2}
+  trigger: {fileID: -3455312061163229484}
   mtype: LArmUp
   imageloc: MotionIcons/LUp
+--- !u!114 &-3455312061163229484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6492657143697572786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   desc: 
+  objName: LArmUp

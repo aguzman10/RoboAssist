@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9076663908536193740}
   - component: {fileID: 9076663908536193715}
   - component: {fileID: 2429029130949392859}
+  - component: {fileID: 9218756098386281184}
   m_Layer: 5
   m_Name: LookUp
   m_TagString: Untagged
@@ -146,7 +147,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
-  motion: {fileID: 11400000, guid: cf9b713060e020a4d8bf72d3667fcb44, type: 2}
+  trigger: {fileID: 9218756098386281184}
   mtype: LookUp
   imageloc: MotionIcons/NeckUp
+--- !u!114 &9218756098386281184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9076663908536193713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   desc: 
+  objName: LookUp
