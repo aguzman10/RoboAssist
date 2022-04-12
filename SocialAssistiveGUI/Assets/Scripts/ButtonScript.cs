@@ -11,8 +11,6 @@ public class ButtonScript : MonoBehaviour
 
     public string mtype, imageloc; //holds motion type an image location for motion buttons
 
-    public TooltipTrigger trigger;
-
     //Main function used by Motion Buttons
     public void AddMotiontoQueue()
     {

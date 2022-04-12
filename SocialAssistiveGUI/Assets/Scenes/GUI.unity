@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 10961570}
   - component: {fileID: 10961569}
   - component: {fileID: 10961572}
+  - component: {fileID: 10961573}
   m_Layer: 5
   m_Name: SaveButton
   m_TagString: Untagged
@@ -385,7 +386,20 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
+--- !u!114 &10961573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10961567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Save Queue
 --- !u!1 &15047319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,7 +2644,6 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 707586132}
 --- !u!114 &707586134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2847,6 +2860,7 @@ GameObject:
   - component: {fileID: 742153994}
   - component: {fileID: 742153993}
   - component: {fileID: 742153996}
+  - component: {fileID: 742153997}
   m_Layer: 5
   m_Name: LoadFile
   m_TagString: Untagged
@@ -2982,7 +2996,20 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
+--- !u!114 &742153997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742153991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Load Selected File
 --- !u!1 &777587535
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,6 +4132,7 @@ GameObject:
   - component: {fileID: 1011904529}
   - component: {fileID: 1011904528}
   - component: {fileID: 1011904527}
+  - component: {fileID: 1011904531}
   m_Layer: 5
   m_Name: ClearButton
   m_TagString: Untagged
@@ -4147,7 +4175,6 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
 --- !u!114 &1011904528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4242,6 +4269,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011904525}
   m_CullTransparentMesh: 1
+--- !u!114 &1011904531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011904525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Clear Queue
 --- !u!1001 &1031951397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5402,6 +5443,7 @@ GameObject:
   - component: {fileID: 1174286495}
   - component: {fileID: 1174286494}
   - component: {fileID: 1174286493}
+  - component: {fileID: 1174286492}
   m_Layer: 5
   m_Name: RemoveButton
   m_TagString: Untagged
@@ -5428,6 +5470,20 @@ RectTransform:
   m_AnchoredPosition: {x: 114.29998, y: 0}
   m_SizeDelta: {x: 26, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1174286492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174286490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Remove Queue from System
 --- !u!114 &1174286493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5443,7 +5499,6 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
 --- !u!114 &1174286494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6128,7 +6183,6 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
 --- !u!114 &1264155271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6944,6 +6998,7 @@ GameObject:
   - component: {fileID: 1445304513}
   - component: {fileID: 1445304512}
   - component: {fileID: 1445304511}
+  - component: {fileID: 1445304515}
   m_Layer: 5
   m_Name: DeleteFile
   m_TagString: Untagged
@@ -6985,7 +7040,6 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
 --- !u!114 &1445304512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7092,6 +7146,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445304509}
   m_CullTransparentMesh: 1
+--- !u!114 &1445304515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445304509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Remove File
 --- !u!1 &1467535925
 GameObject:
   m_ObjectHideFlags: 0
@@ -7522,6 +7590,7 @@ GameObject:
   - component: {fileID: 1578036571}
   - component: {fileID: 1578036570}
   - component: {fileID: 1578036569}
+  - component: {fileID: 1578036572}
   m_Layer: 5
   m_Name: LoadButton
   m_TagString: Untagged
@@ -7666,6 +7735,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578036567}
   m_CullTransparentMesh: 1
+--- !u!114 &1578036572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578036567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desc: 
+  objName: Load Queue
 --- !u!1 &1581639181
 GameObject:
   m_ObjectHideFlags: 0
@@ -7869,7 +7952,6 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
 --- !u!114 &1644751619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8897,7 +8979,6 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
 --- !u!114 &1795069912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9383,7 +9464,6 @@ MonoBehaviour:
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
   mtype: 
   imageloc: 
-  trigger: {fileID: 0}
 --- !u!114 &1853874596
 MonoBehaviour:
   m_ObjectHideFlags: 0
