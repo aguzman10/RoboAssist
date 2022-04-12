@@ -31,24 +31,30 @@ public class testSimulation : MonoBehaviour
     // Start State
     public void StartSimulation()
     {
-        GetTimeStamp(); // Get timestamp for when start state is entered
 
-        // Initialize linked list
-        activityQueue = q.CopyCurrent();
-        node = activityQueue.GetEnumerator();
-        node.MoveNext();
-        
-        // Initialize variables
-        user = new SimulatedUser(userName, playing: userIsPlaying);
-        user.targetMovement = node.Current;
-        Time.timeScale = 1f; // Allows FixedUpdate() to run
-        simulationRunning = true;
-        message = "";
-        finished = false;
+        if (! q.isEmpty()){
+            GetTimeStamp(); // Get timestamp for when start state is entered
 
-        // Start activity timer and have the robot perform the first movement the user should perform
-        timer.StartTimer();
-        DemonstrateMovement();
+            // Initialize linked list
+            activityQueue = q.CopyCurrent();
+            node = activityQueue.GetEnumerator();
+            node.MoveNext();
+
+            // Initialize variables
+            user = new SimulatedUser(userName, playing: userIsPlaying);
+            user.targetMovement = node.Current;
+            Time.timeScale = 1f; // Allows FixedUpdate() to run
+            simulationRunning = true;
+            message = "";
+            finished = false;
+
+            // Start activity timer and have the robot perform the first movement the user should perform
+            timer.StartTimer();
+            DemonstrateMovement();
+        }
+        else {
+            Debug.Log("Empty Queue!");
+        }
     }
 
     // Called once per frame (used to keep track of how much time has passed since user has performed a movement)
