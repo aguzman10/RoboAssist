@@ -14,7 +14,7 @@ public class OpenQueueJson : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string filename = Application.dataPath + "/SavedItems/Queues.txt"; // Queues.txt file
+        string filename = Application.dataPath + "/SavedItems/Queues.json"; // Queues.txt file
         if (File.Exists(filename))
         {
             json = File.ReadAllText(filename); //Read File if it exists

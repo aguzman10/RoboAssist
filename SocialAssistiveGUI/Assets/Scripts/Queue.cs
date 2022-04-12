@@ -85,21 +85,36 @@ public class Queue : ScriptableObject
         return _q;
     }
 
-    //Used in Save Button.
+    //Used in Save System Button.
     public void SaveQueue(){
         // if the dictionary doesn't contain a queue with the current qname, then add the queue to the dictionary
         if (!qDictionary.ContainsKey(qName))
         {
             qDictionary.Add(qName, new LinkedList<MotionObject>(activityQueue));
+            //Serialize and Write the Dictionary to a File
+            string json = JsonConvert.SerializeObject(qDictionary);
+            WriteJsonToFile("Queues.json", json);
         }
         else
         {
-
             Debug.Log("Queue already exists!"); //IMPLEMENT THIS
         }        
-        //Serialize and Write the Dictionary to a File
-        string json = JsonConvert.SerializeObject(qDictionary);
-        WriteJsonToFile("Queues.txt", json);
+    }
+
+    public void SaveFile(string name){
+        name = name + ".q";
+        string path = Application.dataPath + "/SavedItems/"; // SavedItems folder
+        string [] files = Directory.GetFiles(path, "*.q");
+        if (!Array.Exists(files, x => x == (path + name)))
+        {
+            //Serialize and Write the Dictionary to a File
+            string json = JsonConvert.SerializeObject(activityQueue);
+            WriteJsonToFile(name, json);
+        }
+        else
+        {
+            Debug.Log("File already exists!"); //IMPLEMENT THIS
+        }        
     }
 
     //Dictionary Key is passed and the value's icons and motion objects are loaded
@@ -109,11 +124,26 @@ public class Queue : ScriptableObject
         LoadIcons();
     }
 
+    public void LoadQueueFile(string fileName){
+        ClearQueue();
+        string path = Application.dataPath + "/SavedItems/" + fileName;
+
+        string json = File.ReadAllText(path); //Read File if it exists
+        if (String.IsNullOrEmpty(json)){ //If File is empty, create new LinkedList
+            activityQueue = new LinkedList<MotionObject>();
+        }
+        else{
+            activityQueue = new LinkedList<MotionObject>(JsonConvert.DeserializeObject<LinkedList<MotionObject>>(json));
+            LoadIcons();
+        }
+
+    }
+
     //Remove a system Queue by Dictionary Key
     public void RemoveQueue(string key){
         qDictionary.Remove(key);
         string json = JsonConvert.SerializeObject(qDictionary);
-        WriteJsonToFile("Queues.txt", json);
+        WriteJsonToFile("Queues.json", json);
     }
 
     //Used for loading Queue from system or file
