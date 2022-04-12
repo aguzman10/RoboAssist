@@ -12,39 +12,44 @@ public class testSimulation : MonoBehaviour
 
     bool finished = false; // Determines if activity exercise is finished
     bool simulationRunning = false; // Determines if start button on GUI has been pressed
-    bool notPlayingVisited = false; // To trigger Playing Poorly
     int consecWrong = 0; // Number of consecutively wrong movements made
     string timestamp; // Timestamp that state is entered
     string message; // Message to be displayed
 
-    public float waitTime = 2.0f; // Threshold to trigger Not Playing
+    public float waitTime = 2.0f; // Threshold time to trigger Not Playing
     public string userName = "Misty"; // Name of simulated user
     public int wellThreshold = 3; // Threshold to trigger Playing Well
     public int poorlyThreshold = 3; // Threshold to trigger Playing Poorly
+    public bool userIsPlaying = false; // Flag to help determine if simulated user should peform a movement (toggable in Unity editor)
     
     // Start is called before the first frame update
-    // Start State
     public void Start()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; // Used to prevent FixedUpdate() from running before StartSimulation() is executed
     }
+
+    // Start State
     public void StartSimulation()
     {
+
         if (! q.isEmpty()){
+            GetTimeStamp(); // Get timestamp for when start state is entered
+
             // Initialize linked list
             activityQueue = q.CopyCurrent();
             node = activityQueue.GetEnumerator();
             node.MoveNext();
-            
-            user = new SimulatedUser(userName);
-            user.targetMovement = node.Current;
 
-            //GetTimeStamp();
-            timer.StartTimer();
-            Time.timeScale = 1f;
+            // Initialize variables
+            user = new SimulatedUser(userName, playing: userIsPlaying);
+            user.targetMovement = node.Current;
+            Time.timeScale = 1f; // Allows FixedUpdate() to run
             simulationRunning = true;
             message = "";
             finished = false;
+
+            // Start activity timer and have the robot perform the first movement the user should perform
+            timer.StartTimer();
             DemonstrateMovement();
         }
         else {
@@ -52,7 +57,7 @@ public class testSimulation : MonoBehaviour
         }
     }
 
-    // Called once per frame
+    // Called once per frame (used to keep track of how much time has passed since user has performed a movement)
     private void Update()
     {
         if (timer.IsRunning() && simulationRunning)
@@ -61,29 +66,18 @@ public class testSimulation : MonoBehaviour
         }
     }
 
-    // LateUpdate() called after Update() finishes
+    // FixedUpdate() will execute once on application startup, and then stop whenever Time.timeScale is 0
     private void FixedUpdate()
     {
+        if (simulationRunning)
+        {
+            user.isPlaying = userIsPlaying; // Update isPlaying in case it's changed during run time by administrator
 
-        if (notPlayingVisited == false) // Ensure Not Playing is visited at least once for testing purposes
-        {
-            if (timer.elapsedTime > waitTime) // Makes sure the activity timer is functioning correctly
-            { 
-                GetTimeStamp();
-                message = "Please perform a movement.";
-                notPlayingVisited = true;
-                timer.ResetTimer();
-            }
-        }
-        else
-        {
             if (timer.elapsedTime > waitTime) // Not playing state
             {
                 GetTimeStamp();
                 message = "Please perform a movement.";
-                notPlayingVisited = true;
                 timer.ResetTimer();
-
             }
             else // Stable State
             {
@@ -91,17 +85,16 @@ public class testSimulation : MonoBehaviour
                 GetUserMovement(); // Get user movement
                 if (user.chosenMovement != "no movement") // User should perform a movement
                 {
-                    //user.GenerateMovement(); // Perform a movement
                     timer.ResetTimer(); // Reset timer once user has performed a movement
-
                     if (user.chosenMovement == node.Current) // User performed correct movement
                     {
                         consecWrong = 0; // Reset the number of conescutively wrong movements the user has performed
+                        user.IncrementCorrect(); // Increment the number of correct movements the user has performed by 1
 
                         if (user.GetNumCorrect() % wellThreshold == 0) // Playing Well State
                         {
                             GetTimeStamp();
-                            message = "Keep up the good work!";
+                            message = "Correct! Keep up the good work!";
                         }
                         else // Correct Movement State
                         {
@@ -116,11 +109,12 @@ public class testSimulation : MonoBehaviour
                     else // User performed an incorrect movement
                     {
                         consecWrong++; // Increment the number of consecutively wrong movements the user has performed
+                        user.IncrementIncorrect(); // Increment the number of incorrect movements the user has performed by 1
 
                         if (consecWrong >= poorlyThreshold) // Playing Poorly State
                         {
                             GetTimeStamp();
-                            message = "Don't give up!";
+                            message = "Incorrect! Don't give up!";
                         }
                         else // Incorrect Movement State
                         {
@@ -131,25 +125,25 @@ public class testSimulation : MonoBehaviour
                 }
             }
 
-        }
-        if (!finished && simulationRunning && message != "") // Display State
-        {
-            GetTimeStamp();
-            DisplayMessage(); // Display Message State
-            DemonstrateMovement(); // Robot demonstrates next motion to be performed
-        }
+            if (!finished && message != "") // Display State
+            {
+                GetTimeStamp();
+                DisplayMessage(); // Display Message State
+                DemonstrateMovement(); // Robot demonstrates next motion to be performed
+            }
 
-        if (finished) // Finished State
-        {
-            Time.timeScale = 0f;
-            GetTimeStamp();
-            timer.StopTimer();
-            DisplayMessage();
-            CongratulatoryBehavior();
-            
-            // Save user performance here
+            if (finished) // Finished State
+            {
+                GetTimeStamp();
+                simulationRunning = false;
+                Time.timeScale = 0f;
+                timer.StopTimer();
+                DisplayMessage();
+                CongratulatoryBehavior();
 
-            //UnityEditor.EditorApplication.isPlaying = false; // Terminates program execution in Unity Editor
+                // Save user performance here
+
+            }
         }
     }
 
