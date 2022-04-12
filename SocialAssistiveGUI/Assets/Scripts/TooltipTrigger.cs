@@ -27,7 +27,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         delay = LeanTween.delayedCall(0.5f, () =>
         {
             TooltipSystem.Show(desc, objName);
-        });
+        }).setIgnoreTimeScale(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
