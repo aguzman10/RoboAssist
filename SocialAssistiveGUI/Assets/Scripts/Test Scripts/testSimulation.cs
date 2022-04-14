@@ -174,6 +174,7 @@ public class testSimulation : MonoBehaviour
 
         Time.timeScale = 0f;
         timer.StopTimer();
+        simulationRunning = false ;
     }
 
     // Resumes after a pause
@@ -181,6 +182,7 @@ public class testSimulation : MonoBehaviour
     {
         Time.timeScale = 1f;
         timer.StartTimer();
+        simulationRunning = true;
 
         DemonstrateMovement();
     }
