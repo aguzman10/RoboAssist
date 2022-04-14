@@ -11,10 +11,14 @@ public class testSimulation : MonoBehaviour
     ActivityTimer timer = new ActivityTimer(); // Used to determine when to enter Not Playing State
 
     bool finished = false; // Determines if activity exercise is finished
+    bool stoppedEarly = false; //Determines if the session should be stopped before the end is reached
     bool simulationRunning = false; // Determines if start button on GUI has been pressed
     int consecWrong = 0; // Number of consecutively wrong movements made
     string timestamp; // Timestamp that state is entered
     string message; // Message to be displayed
+
+    public GameObject mainMenu; // points to "TopTools" in the hierarchy
+    public GameObject playMenu; // points to "TopPlayTools" in the hierarchy
 
     public float waitTime = 2.0f; // Threshold time to trigger Not Playing
     public string userName = "Misty"; // Name of simulated user
@@ -139,12 +143,48 @@ public class testSimulation : MonoBehaviour
                 Time.timeScale = 0f;
                 timer.StopTimer();
                 DisplayMessage();
-                CongratulatoryBehavior();
+                if (!stoppedEarly)
+                    CongratulatoryBehavior();
+                else
+                    print("Activity finished.");
+
+                print("Number of correct movements: " + user.GetNumCorrect());
+                print("Number of incorrect movements: " + user.GetNumIncorrect());
 
                 // Save user performance here
 
+                mainMenu.SetActive(true);
+                playMenu.SetActive(false);
             }
         }
+    }
+
+    // Stops simulation early
+    public void stopSimulation()
+    {
+        Time.timeScale = 1f; // Resumes Activity if it is paused and goes to the finished state
+        stoppedEarly = true;
+        finished = true;
+    }
+
+    // Pauses the queue
+    public void pauseSimulation()
+    {
+        Debug.Log("Paused Simulation");
+
+        Time.timeScale = 0f;
+        timer.StopTimer();
+        simulationRunning = false ;
+    }
+
+    // Resumes after a pause
+    public void resumeSimulation()
+    {
+        Time.timeScale = 1f;
+        timer.StartTimer();
+        simulationRunning = true;
+
+        DemonstrateMovement();
     }
 
     // Function for robot to detect user movement
@@ -163,8 +203,6 @@ public class testSimulation : MonoBehaviour
     private void CongratulatoryBehavior()
     {
         print("You finished your exercise activity! Good job!");
-        print("Number of correct movements: " + user.GetNumCorrect());
-        print("Number of incorrect movements: " + user.GetNumIncorrect());
     }
 
     // Grabs timestamp (should be called each time a state is entered)
