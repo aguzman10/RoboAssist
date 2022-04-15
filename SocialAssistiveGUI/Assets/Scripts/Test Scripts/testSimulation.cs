@@ -17,6 +17,10 @@ public class testSimulation : MonoBehaviour
     string timestamp; // Timestamp that state is entered
     string message; // Message to be displayed
 
+    string userPerformance = "Timestamp,Event\n"; //String to be added to for user performance csv file
+    string runLog = "Runtime Log \n"; //String to be added to for the runtime log
+    DateTime currentDay = DateTime.Today; //Current date and time for naming of log files
+
     public GameObject mainMenu; // points to "TopTools" in the hierarchy
     public GameObject playMenu; // points to "TopPlayTools" in the hierarchy
 
@@ -80,12 +84,14 @@ public class testSimulation : MonoBehaviour
             if (timer.elapsedTime > waitTime) // Not playing state
             {
                 GetTimeStamp();
+                runLog = runLog + (timestamp + " Not Playing State\n"); //runLog
                 message = "Please perform a movement.";
                 timer.ResetTimer();
             }
             else // Stable State
             {
                 GetTimeStamp();
+                runLog = runLog + (timestamp + " Stable State\n"); //runLog
                 GetUserMovement(); // Get user movement
                 if (user.chosenMovement != "no movement") // User should perform a movement
                 {
@@ -98,11 +104,17 @@ public class testSimulation : MonoBehaviour
                         if (user.GetNumCorrect() % wellThreshold == 0) // Playing Well State
                         {
                             GetTimeStamp();
+                            runLog = runLog + (timestamp + " Playing Well State\n"); //runLog
+                            userPerformance = userPerformance + (timestamp + ",Attempt: Correct\n"); //CSV Logging
+                            runLog = runLog + (timestamp + " Attempt: Correct\n"); //runLog
                             message = "Correct! Keep up the good work!";
                         }
                         else // Correct Movement State
                         {
                             GetTimeStamp();
+                            runLog = runLog + (timestamp + " Correct Movement State\n"); //runLog
+                            userPerformance = userPerformance + (timestamp + ",Attempt: Correct\n"); //CSV Logging
+                            runLog = runLog + (timestamp + " Attempt: Correct\n"); //runLog
                             message = "Correct!";
                         }
                         if (!node.MoveNext()) // Move to next node in linked list
@@ -118,11 +130,21 @@ public class testSimulation : MonoBehaviour
                         if (consecWrong >= poorlyThreshold) // Playing Poorly State
                         {
                             GetTimeStamp();
+                            runLog = runLog + (timestamp + " Playing Poorly State\n"); //runLog
+                            userPerformance = userPerformance + (timestamp + ",Attempt: Incorrect\n"); //CSV Logging
+                            userPerformance = userPerformance + (timestamp + ",Reprompting\n"); //CSV Logging
+                            runLog = runLog + (timestamp + " Attempt: Incorrect\n"); //runLog
+                            runLog = runLog + (timestamp + " Reprompting\n"); //runLog
                             message = "Incorrect! Don't give up!";
                         }
                         else // Incorrect Movement State
                         {
                             GetTimeStamp();
+                            runLog = runLog + (timestamp + " Incorrect Movement State\n"); //runLog
+                            userPerformance = userPerformance + (timestamp + ",Attempt: Incorrect\n"); //CSV Logging
+                            userPerformance = userPerformance + (timestamp + ",Reprompting\n"); //CSV Logging
+                            runLog = runLog + (timestamp + " Attempt: Incorrect\n"); //runLog
+                            runLog = runLog + (timestamp + " Reprompting\n"); //runLog
                             message = "Incorrect!";
                         }
                     }
@@ -139,6 +161,7 @@ public class testSimulation : MonoBehaviour
             if (finished) // Finished State
             {
                 GetTimeStamp();
+                runLog = runLog + (timestamp + " Finished State\n"); //runLog
                 simulationRunning = false;
                 Time.timeScale = 0f;
                 timer.StopTimer();
@@ -150,8 +173,14 @@ public class testSimulation : MonoBehaviour
 
                 print("Number of correct movements: " + user.GetNumCorrect());
                 print("Number of incorrect movements: " + user.GetNumIncorrect());
+                runLog = runLog + (timestamp + " Correct Movements: " + user.GetNumCorrect() + "\n"); //runLog
+                runLog = runLog + (timestamp + " Incorrect Movements: " + user.GetNumIncorrect() + "\n"); //runLog
 
                 // Save user performance here
+                userPerformance = userPerformance + ("Total Correct:," + user.GetNumCorrect() + "\n"); //CSV Logging
+                userPerformance = userPerformance + ("Total Incorrect:," + user.GetNumIncorrect() + "\n"); //CSV Logging
+                System.IO.File.WriteAllText(userName +" user performance " + currentDay.ToString("MM'-'dd'-'yyyy") + ".csv", userPerformance); //CSV Logging
+                System.IO.File.WriteAllText(userName + " runlog " + currentDay.ToString("MM'-'dd'-'yyyy") + ".txt", runLog); //runLog
 
                 mainMenu.SetActive(true);
                 playMenu.SetActive(false);
@@ -197,6 +226,8 @@ public class testSimulation : MonoBehaviour
     private void DemonstrateMovement()
     {
         print("Try to perform this movement: " + node.Current);
+        GetTimeStamp();
+        userPerformance = userPerformance + (timestamp + "," + "Prompted: " + node.Current + "\n"); //CSV Logging
     }
 
     // Function for robot demonstrating congratulatory behavior
