@@ -1,0 +1,46 @@
+Runtime Log 
+10:53:11:9 Stable State
+10:53:11:9 Incorrect Movement State
+10:53:11:9 Attempt: Incorrect
+10:53:11:9 Reprompting
+10:53:11:9 Stable State
+10:53:11:9 Stable State
+10:53:11:9 Incorrect Movement State
+10:53:11:9 Attempt: Incorrect
+10:53:11:9 Reprompting
+10:53:11:9 Stable State
+10:53:11:9 Correct Movement State
+10:53:11:9 Attempt: Correct
+10:53:11:9 Stable State
+10:53:12:0 Stable State
+10:53:12:0 Correct Movement State
+10:53:12:0 Attempt: Correct
+10:53:12:0 Stable State
+10:53:12:0 Incorrect Movement State
+10:53:12:0 Attempt: Incorrect
+10:53:12:0 Reprompting
+10:53:12:0 Stable State
+10:53:12:0 Incorrect Movement State
+10:53:12:0 Attempt: Incorrect
+10:53:12:0 Reprompting
+10:53:12:0 Stable State
+10:53:12:0 Playing Poorly State
+10:53:12:0 Attempt: Incorrect
+10:53:12:0 Reprompting
+10:53:12:0 Stable State
+10:53:12:0 Playing Poorly State
+10:53:12:0 Attempt: Incorrect
+10:53:12:0 Reprompting
+10:53:12:1 Stable State
+10:53:12:1 Playing Well State
+10:53:12:1 Attempt: Correct
+10:53:12:1 Stable State
+10:53:12:1 Stable State
+10:53:12:1 Correct Movement State
+10:53:12:1 Attempt: Correct
+10:53:12:1 Stable State
+10:53:12:1 Correct Movement State
+10:53:12:1 Attempt: Correct
+10:53:12:1 Finished State
+10:53:12:1 Correct Movements: 5
+10:53:12:1 Incorrect Movements: 6

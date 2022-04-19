@@ -1,0 +1,79 @@
+Runtime Log 
+10:53:55:0 Stable State
+10:53:55:0 Incorrect Movement State
+10:53:55:0 Attempt: Incorrect
+10:53:55:0 Reprompting
+10:53:55:1 Stable State
+10:53:55:1 Incorrect Movement State
+10:53:55:1 Attempt: Incorrect
+10:53:55:1 Reprompting
+10:53:55:1 Stable State
+10:53:55:1 Playing Poorly State
+10:53:55:1 Attempt: Incorrect
+10:53:55:1 Reprompting
+10:53:55:1 Stable State
+10:53:55:1 Correct Movement State
+10:53:55:1 Attempt: Correct
+10:53:55:1 Stable State
+10:53:55:1 Stable State
+10:53:55:1 Correct Movement State
+10:53:55:1 Attempt: Correct
+10:53:55:2 Stable State
+10:53:55:2 Incorrect Movement State
+10:53:55:2 Attempt: Incorrect
+10:53:55:2 Reprompting
+10:53:55:2 Stable State
+10:53:55:2 Playing Well State
+10:53:55:2 Attempt: Correct
+10:53:55:2 Finished State
+10:53:55:2 Correct Movements: 3
+10:53:55:2 Incorrect Movements: 4
+10:53:59:8 Stable State
+10:53:59:8 Stable State
+10:53:59:8 Correct Movement State
+10:53:59:8 Attempt: Correct
+10:53:59:9 Stable State
+10:53:59:9 Incorrect Movement State
+10:53:59:9 Attempt: Incorrect
+10:53:59:9 Reprompting
+10:53:59:9 Stable State
+10:53:59:9 Correct Movement State
+10:53:59:9 Attempt: Correct
+10:53:59:9 Stable State
+10:53:59:9 Playing Well State
+10:53:59:9 Attempt: Correct
+10:53:59:9 Stable State
+10:53:59:9 Stable State
+10:53:59:9 Correct Movement State
+10:53:59:9 Attempt: Correct
+10:54:00:0 Stable State
+10:54:00:0 Incorrect Movement State
+10:54:00:0 Attempt: Incorrect
+10:54:00:0 Reprompting
+10:54:00:0 Stable State
+10:54:00:0 Stable State
+10:54:00:0 Incorrect Movement State
+10:54:00:0 Attempt: Incorrect
+10:54:00:0 Reprompting
+10:54:00:0 Stable State
+10:54:00:0 Stable State
+10:54:00:0 Playing Poorly State
+10:54:00:0 Attempt: Incorrect
+10:54:00:0 Reprompting
+10:54:00:1 Stable State
+10:54:00:1 Correct Movement State
+10:54:00:1 Attempt: Correct
+10:54:00:1 Stable State
+10:54:00:1 Incorrect Movement State
+10:54:00:1 Attempt: Incorrect
+10:54:00:1 Reprompting
+10:54:00:1 Stable State
+10:54:00:1 Playing Well State
+10:54:00:1 Attempt: Correct
+10:54:00:1 Stable State
+10:54:00:1 Stable State
+10:54:00:1 Correct Movement State
+10:54:00:1 Attempt: Correct
+10:54:00:1 Finished State
+10:54:00:1 Correct Movements: 7
+10:54:00:1 Incorrect Movements: 5
