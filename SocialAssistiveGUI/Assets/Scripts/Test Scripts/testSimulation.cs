@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.IO;
 using UnityEngine;
 
 public class testSimulation : MonoBehaviour
@@ -19,7 +20,9 @@ public class testSimulation : MonoBehaviour
 
     string userPerformance = "Timestamp,Event\n"; //String to be added to for user performance csv file
     string runLog = "Runtime Log \n"; //String to be added to for the runtime log
-    DateTime currentDay = DateTime.Today; //Current date and time for naming of log files
+    string log_path; //string for path of userlog files
+    string runLog_path; //string for path of runlog files
+    DateTime currentDay; //Current date and time for naming of log files
 
     public GameObject mainMenu; // points to "TopTools" in the hierarchy
     public GameObject playMenu; // points to "TopPlayTools" in the hierarchy
@@ -179,8 +182,12 @@ public class testSimulation : MonoBehaviour
                 // Save user performance here
                 userPerformance = userPerformance + ("Total Correct:," + user.GetNumCorrect() + "\n"); //CSV Logging
                 userPerformance = userPerformance + ("Total Incorrect:," + user.GetNumIncorrect() + "\n"); //CSV Logging
-                System.IO.File.WriteAllText(userName +" user performance " + currentDay.ToString("MM'-'dd'-'yyyy") + ".csv", userPerformance); //CSV Logging
-                System.IO.File.WriteAllText(userName + " runlog " + currentDay.ToString("MM'-'dd'-'yyyy") + ".txt", runLog); //runLog
+
+                log_path = Application.dataPath + "/UserLogs/"; //placing userlogs in a folder
+                runLog_path = Application.dataPath + "/RunLogs/"; //placing runlogs in a folder
+                currentDay = DateTime.Now; //update date and time for file naming
+                System.IO.File.WriteAllText(log_path + userName +" user performance " + currentDay.ToString("MM'-'dd'-'yyyy HH-mm-ss") + ".csv", userPerformance); //CSV Logging
+                System.IO.File.WriteAllText(runLog_path + userName + " runlog " + currentDay.ToString("MM'-'dd'-'yyyy HH-mm-ss") + ".txt", runLog); //runLog
 
                 mainMenu.SetActive(true);
                 playMenu.SetActive(false);
@@ -194,6 +201,8 @@ public class testSimulation : MonoBehaviour
         Time.timeScale = 1f; // Resumes Activity if it is paused and goes to the finished state
         stoppedEarly = true;
         finished = true;
+        simulationRunning = true;
+
     }
 
     // Pauses the queue
