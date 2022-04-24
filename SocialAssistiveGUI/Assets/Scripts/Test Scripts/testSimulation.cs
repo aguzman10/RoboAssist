@@ -47,7 +47,7 @@ public class testSimulation : MonoBehaviour
             // Initialize variables
             user = new SimulatedUser(userName, playing: userIsPlaying);
             user.targetMovement = node.Current;
-            Time.timeScale = 1f; // Allows FixedUpdate() to run
+            Time.timeScale = 0.1f; // Allows FixedUpdate() to run
             simulationRunning = true;
             message = "";
             finished = false;
@@ -180,7 +180,7 @@ public class testSimulation : MonoBehaviour
     // Resumes after a pause
     public void resumeSimulation()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0.1f;
         timer.StartTimer();
         simulationRunning = true;
 
