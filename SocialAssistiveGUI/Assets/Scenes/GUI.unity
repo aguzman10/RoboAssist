@@ -4410,7 +4410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -195, y: 8}
+  m_AnchoredPosition: {x: -200, y: 8}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1011904527
@@ -5504,30 +5504,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1165598448}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 500793232}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1162358231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6567,6 +6543,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: 1138131150994988310, guid: 6feaffdd413f0584cb7063f0d9b14e43, type: 3}
+      propertyPath: desc
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3977220783202887136, guid: 6feaffdd413f0584cb7063f0d9b14e43, type: 3}
       propertyPath: m_Name
       value: LookLeft
@@ -12201,6 +12181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RArmOut
       objectReference: {fileID: 0}
+    - target: {fileID: 8027101992502946725, guid: 78117d797b9510f41a972310df0c0b9f, type: 3}
+      propertyPath: desc
+      value: Extend right arm from body
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 78117d797b9510f41a972310df0c0b9f, type: 3}
@@ -12211,6 +12195,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: -1508511546736733989, guid: 0155b6a31dcae3f46bb5b831d495dddc, type: 3}
+      propertyPath: desc
+      value: Move left arm across body
+      objectReference: {fileID: 0}
     - target: {fileID: 1019876250635081299, guid: 0155b6a31dcae3f46bb5b831d495dddc, type: 3}
       propertyPath: m_Name
       value: LArmAcross
@@ -12397,6 +12385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RArmForward
       objectReference: {fileID: 0}
+    - target: {fileID: 2484050670757414638, guid: 592ce86d31614a744a116eae20c2d95f, type: 3}
+      propertyPath: desc
+      value: Extend right arm forward
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 592ce86d31614a744a116eae20c2d95f, type: 3}
@@ -12495,6 +12487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RArmUp
       objectReference: {fileID: 0}
+    - target: {fileID: 5129275137072162042, guid: 0ecf356eec5f2474488ca5bb3eb55980, type: 3}
+      propertyPath: desc
+      value: Extend right arm upwards
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0ecf356eec5f2474488ca5bb3eb55980, type: 3}
@@ -12505,6 +12501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: 1536758765918363618, guid: 6703ad04d55db6547a68b9891faf0270, type: 3}
+      propertyPath: desc
+      value: Extend right leg forward while sitting
+      objectReference: {fileID: 0}
     - target: {fileID: 2410603763439213269, guid: 6703ad04d55db6547a68b9891faf0270, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12603,6 +12603,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: 872344113807300474, guid: 6dd5fba200b3b774c881be485971dae1, type: 3}
+      propertyPath: desc
+      value: Extend left leg forward while sitting
+      objectReference: {fileID: 0}
     - target: {fileID: 3455933813227837384, guid: 6dd5fba200b3b774c881be485971dae1, type: 3}
       propertyPath: m_Name
       value: LLegMoveSitting
@@ -12701,6 +12705,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: -1374684158267198063, guid: 722c6b79f62d3f740b4f6dda93e3156b, type: 3}
+      propertyPath: desc
+      value: Extend left arm from body
+      objectReference: {fileID: 0}
     - target: {fileID: -76511812511997003, guid: 722c6b79f62d3f740b4f6dda93e3156b, type: 3}
       propertyPath: desc
       value: Stretch your left arm out to the left.
@@ -12803,6 +12811,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: -8653984766224379499, guid: 24cf76fae8aa67345b1d0688e8a16228, type: 3}
+      propertyPath: desc
+      value: Extend right leg forward
+      objectReference: {fileID: 0}
     - target: {fileID: 4533798719444987050, guid: 24cf76fae8aa67345b1d0688e8a16228, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12901,6 +12913,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: -575803477579717191, guid: 31291a4ee84fc51448c720b16561be90, type: 3}
+      propertyPath: desc
+      value: Extend left leg forward
+      objectReference: {fileID: 0}
     - target: {fileID: 4677957307087811272, guid: 31291a4ee84fc51448c720b16561be90, type: 3}
       propertyPath: m_Name
       value: LLegMoveStanding
@@ -13003,6 +13019,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: -4245226629348177025, guid: 0131c7071fadef4448609c85c0d306de, type: 3}
+      propertyPath: desc
+      value: Bend right arm
+      objectReference: {fileID: 0}
     - target: {fileID: 4914396973627088648, guid: 0131c7071fadef4448609c85c0d306de, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13101,6 +13121,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: 4507601670064521164, guid: e9bd035fbb3d6254da15dce0333598a2, type: 3}
+      propertyPath: desc
+      value: Move right arm across body
+      objectReference: {fileID: 0}
     - target: {fileID: 5931407230910680064, guid: e9bd035fbb3d6254da15dce0333598a2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13199,6 +13223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: -3455312061163229484, guid: 1f85d782a11eb1845b8a35dee7aa738d, type: 3}
+      propertyPath: desc
+      value: Extend left arm upwards
+      objectReference: {fileID: 0}
     - target: {fileID: 6492657143697572786, guid: 1f85d782a11eb1845b8a35dee7aa738d, type: 3}
       propertyPath: m_Name
       value: LArmUp
@@ -13297,6 +13325,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: 244727586165728422, guid: a4ed5f69616eb984a83cfa3953e72fa3, type: 3}
+      propertyPath: desc
+      value: Extend left arm forward
+      objectReference: {fileID: 0}
     - target: {fileID: 8366782082262435765, guid: a4ed5f69616eb984a83cfa3953e72fa3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13395,6 +13427,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620513421}
     m_Modifications:
+    - target: {fileID: -5558707941890635728, guid: c598cb4a48ec0cc479ac65fd42ec38c1, type: 3}
+      propertyPath: desc
+      value: Bend left arm
+      objectReference: {fileID: 0}
     - target: {fileID: 9118286822278477204, guid: c598cb4a48ec0cc479ac65fd42ec38c1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
