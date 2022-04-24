@@ -30,6 +30,7 @@ public class Queue : ScriptableObject
     {
         //Add To Linked List and Create Icon
         activityQueue.AddLast(motion);
+        //NOTE: if no more changes to GUI, can change this to use gameobject.parent.child methods for better efficiency
         contentWindow = GameObject.Find("Content"); //Any way to do this only once? Can't use start function (SCRIPTABLE OBJECT TYPE)
         GameObject icon = Instantiate(prefabIcon, contentWindow.transform);
         iconList.Add(icon); //Add Icon to List (for Deleting Purposes)
@@ -75,7 +76,7 @@ public class Queue : ScriptableObject
     }
 
     //Copies Current Queue to Simulation (simulation can remove freely)
-    // NOTE: ONLY STRINGS ARE COPIED OVER
+    // NOTE: ONLY STRINGS of MOTIONTYPE ARE COPIED OVER
     public LinkedList<string> CopyCurrent(){
         LinkedList<string> _q = new LinkedList<string>();
         foreach (var item in activityQueue)
@@ -101,6 +102,7 @@ public class Queue : ScriptableObject
         }        
     }
 
+    //Used in Save File Button.
     public void SaveFile(string name){
         name = name + ".q";
         string path = Application.dataPath + "/SavedItems/"; // SavedItems folder
@@ -124,6 +126,7 @@ public class Queue : ScriptableObject
         LoadIcons();
     }
 
+    //Deserialize the file and put it in the Queue
     public void LoadQueueFile(string fileName){
         ClearQueue();
         string path = Application.dataPath + "/SavedItems/" + fileName;
