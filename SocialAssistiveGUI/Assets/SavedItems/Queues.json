@@ -1,1 +1,1 @@
-{}
+{"My Morning":[{"MotionType":"LookLeft","imageLocation":"MotionIcons/NeckLeft"},{"MotionType":"LArmForward","imageLocation":"MotionIcons/LForward"},{"MotionType":"RArmForward","imageLocation":"MotionIcons/RForward"},{"MotionType":"RLegStanding","imageLocation":"MotionIcons/RLeg"}],"My Evening":[{"MotionType":"LLegStanding","imageLocation":"MotionIcons/LLeg"},{"MotionType":"RArmForward","imageLocation":"MotionIcons/RForward"},{"MotionType":"LookDown","imageLocation":"MotionIcons/NeckDown"}]}

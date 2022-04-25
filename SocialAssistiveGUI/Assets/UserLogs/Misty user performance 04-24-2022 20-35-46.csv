@@ -1,0 +1,27 @@
+Timestamp,Event
+20:35:36:1,Attempt: Incorrect
+20:35:36:1,Reprompting
+20:35:36:1,Prompted: LookLeft
+20:35:36:3,Attempt: Correct
+20:35:36:3,Prompted: LArmAcross
+20:35:36:5,Attempt: Incorrect
+20:35:36:5,Reprompting
+20:35:36:5,Prompted: LArmAcross
+20:35:36:7,Attempt: Correct
+20:35:36:7,Prompted: LArmForward
+20:35:36:9,Attempt: Incorrect
+20:35:36:9,Reprompting
+20:35:36:9,Prompted: LArmForward
+20:35:37:1,Attempt: Correct
+20:35:37:1,Prompted: LArmUp
+20:35:43:9,Prompted: LArmUp
+20:35:46:4,Prompted: LArmUp
+20:35:46:7,Attempt: Incorrect
+20:35:46:7,Reprompting
+20:35:46:7,Prompted: LArmUp
+20:35:46:9,Attempt: Incorrect
+20:35:46:9,Reprompting
+20:35:46:9,Prompted: LArmUp
+20:35:46:9,Attempt: Correct
+Total Correct:,4
+Total Incorrect:,5
