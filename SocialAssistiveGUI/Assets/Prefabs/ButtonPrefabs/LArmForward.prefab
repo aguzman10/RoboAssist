@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _queue: {fileID: 11400000, guid: e4b96aaf19a863f40b2d7df2091342a2, type: 2}
-  trigger: {fileID: 244727586165728422}
   mtype: LArmForward
   imageloc: MotionIcons/LForward
 --- !u!114 &244727586165728422
@@ -162,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14441e7bb0a86064f86f4bcf30370ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desc: 
+  desc: Extend left arm forward
   objName: LArmForward
