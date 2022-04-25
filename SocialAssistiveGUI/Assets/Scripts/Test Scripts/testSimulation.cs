@@ -62,6 +62,10 @@ public class testSimulation : MonoBehaviour
             // Start activity timer and have the robot perform the first movement the user should perform
             timer.StartTimer();
             DemonstrateMovement();
+
+            //Logging
+            userPerformance = "Timestamp,Event\n";
+            runLog = "Runtime Log \n";
         }
         else {
             Debug.Log("Empty Queue!");
