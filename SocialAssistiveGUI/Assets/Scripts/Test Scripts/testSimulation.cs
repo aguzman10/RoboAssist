@@ -46,6 +46,9 @@ public class testSimulation : MonoBehaviour
         if (! q.isEmpty()){
             GetTimeStamp(); // Get timestamp for when start state is entered
 
+            mainMenu.SetActive(false);
+            playMenu.SetActive(true);
+
             // Initialize linked list
             activityQueue = q.CopyCurrent();
             node = activityQueue.GetEnumerator();
