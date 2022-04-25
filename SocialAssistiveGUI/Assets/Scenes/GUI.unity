@@ -1237,7 +1237,7 @@ MonoBehaviour:
   userName: Misty
   wellThreshold: 3
   poorlyThreshold: 3
-  userIsPlaying: 1
+  userIsPlaying: 0
 --- !u!1 &373141764
 GameObject:
   m_ObjectHideFlags: 0
